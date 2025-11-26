@@ -1,0 +1,21 @@
+name: Uses Examples
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 1. Checkout repository code
+      # Haalt de code (inclusief my_script.py) naar de Runner
+      uses: actions/checkout@v4
+      
+    - name: 2. Setup Python 3.13
+      # Installeert de vereiste Python versie
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+        
+    - name: 3. Execute my_script.py
+      # Voert het script uit met het 'run' commando
+      run: python my_script.py
