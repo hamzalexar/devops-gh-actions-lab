@@ -1,0 +1,22 @@
+name: Steps Examples # 1. Naam is "Steps Examples"
+on: [push] # De trigger, zodat hij start na het committen
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # 2. Runs on Ubuntu-latest
+    
+    steps:
+    - name: 1. Create Test Directory
+      run: mkdir testmachine # 3. Step that creates a directory "testmachine"
+      
+    - name: 2. Run Command and Save Output
+      # Het commando 'uname -a' uitvoeren en de output omleiden (>) naar het bestand in de nieuwe map
+      run: uname -a > testmachine/output.txt # 4. Step that runs uname -a and puts the output in output.txt in testmachine
+      
+    - name: 3. Verify Output File Content
+      # We gebruiken 'cat' om de inhoud van het bestand weer te geven
+      run: cat testmachine/output.txt # 5. Verification step that show the contents of the txt file
+      
+    - name: 4. Verification Directory Listing
+      # We gebruiken 'ls -alhR' om de directory structuur en inhoud te tonen
+      run: ls -alhR # 6. Verification step that shows the listing and contents of the directories
