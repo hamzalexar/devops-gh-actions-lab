@@ -1,15 +1,16 @@
-name:  Checkout
-on: 
+name: Checkout 
+on:
   push:
     branches:
-      -main
-
+      - main 
+      
+      
 jobs:
   build:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout
+    - name: Checkout Code
       uses: actions/checkout@v6.0.0
       
    
